@@ -1,8 +1,8 @@
-import Card from '@templates/Card';
-import '@styles/styles.css';
+import Card from "@templates/Card";
+import "@styles/styles.css";
 
-const $app = document.getElementById('app');
-const $observe = document.getElementById('observe');
+const $app = document.getElementById("app");
+const $observe = document.getElementById("observe");
 const API = process.env.API_URL;
 
 localStorage["pagination"] = 5;
@@ -22,7 +22,7 @@ const getData = async (api) => {
       let newItem = document.createElement("section");
       newItem.classList.add("Items");
       newItem.innerHTML = output.join("");
-      console.log(newItem)
+      console.log(newItem);
       $app.appendChild(newItem);
     } else {
       intersectionObserver.unobserve($observe);
@@ -31,8 +31,10 @@ const getData = async (api) => {
       message.textContent = "Todos los productos Obtenidos";
       $observe.appendChild(message);
     }
-  } catch (error) {
-    console.log(error);
+  } catch {
+    let msgError = document.createElement("p");
+    msgError.textContent = "Error, Productos no disponibles";
+    $body.appendChild(msgError);
   }
 };
 
@@ -56,7 +58,7 @@ const intersectionObserver = new IntersectionObserver(
     root: null,
     rootMargin: "0px 0px 0px 0px",
     threshold: 0.5,
-  },
+  }
 );
 
 intersectionObserver.observe($observe);

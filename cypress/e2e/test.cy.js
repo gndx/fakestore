@@ -1,11 +1,11 @@
-describe("PlatziStore Tests", () => {
+describe("FakeStore Tests", () => {
   beforeEach(() => {
     cy.visit('http://localhost:8080/');
     cy.wait(2000);
   })
 
   it('Existe el titulo PlatziStore', () => {
-    cy.title().should('contain', 'PlatziStore');
+    cy.title().should('contain', 'FakeStore');
   });
 
   it("Obtener initialState del LocalStorage", () => {
