@@ -1,4 +1,4 @@
-import Card from "@templates/Card";
+import Card from "@templates/card";
 import "@styles/styles.css";
 
 const $app = document.getElementById("app");
